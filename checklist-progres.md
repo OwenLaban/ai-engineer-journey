@@ -79,9 +79,9 @@
 ## 🔌 Fase 2 — Model & Konteks
 
 ### Minggu 10 — Ekosistem Model
-- [ ] Closed vs open-source vs self-hosted
-- [ ] Kriteria memilih model
-- [ ] Commit minggu ini ✅
+- [x] Closed vs open-source vs self-hosted *(dibahas: open-weight ≠ open-source; self-hosted = cara deployment)*
+- [x] Kriteria memilih model *(kualitas, biaya, latency, context, privasi, operasional, hardware)*
+- [x] Commit minggu ini ✅ *(PR #10 merged: `latihan_model` + laporan 3 skenario, 19/19 test)*
 
 ### Minggu 11 — Hugging Face + Model Lokal
 - [ ] Hugging Face: Hub, tasks, model card
@@ -203,3 +203,4 @@
 - **Minggu 7:** ✅ Selesai. Latihan 14 tokenizer/context window: 4 fungsi + 5 test (total 12 test repo). Pelajaran: token ≠ kata; jumlah token tergantung tokenizer (`o200k_base` vs `cl100k_base`); 8.000 token ≈ 6.000–6.500 kata; context window dihitung token; RAG = retrieval + LLM (model tidak mencari sendiri di PDF); fine-tuning mengubah parameter, RAG menyuntik konteks; API key jangan pernah masuk prompt/repo. PR #6 merged.
 - **Minggu 8:** ✅ Selesai. Latihan 15: 5 variasi prompt untuk ekstraksi email → JSON tiket (zero-shot, role+schema, few-shot, CoT, robust/edge case), diuji dengan Email 1 + edge case Email 2. Semua output utama JSON valid; **few-shot** paling konsisten, sedangkan prompt 5 mengalami under-extraction (`produk: null`). Pelajaran: schema eksplisit mengunci format; contoh mengunci gaya dan level detail; constraint berlebihan bisa menurunkan recall; email harus diperlakukan sebagai data, bukan instruksi. PR #8 merged.
 - **Minggu 9:** ✅ Selesai. Proyek #3 [chatbot-api](https://github.com/OwenLaban/chatbot-api): FastAPI + memory JSON per sesi + output Pydantic + klien OpenRouter. 16/16 test; live test ingat nama, isolasi sesi, dan delete → 404. Pelajaran: test dengan mock bisa hijau meski `_client()` lupa `return` — tambahkan test konfigurasi client; `openrouter/free` adalah auto-router yang bisa memilih model safety, jadi pakai model chat spesifik; API key hanya di `.env`. PR #1 merged. **Fase 1 selesai.**
+- **Minggu 10:** ✅ Selesai. Lab [`latihan_model`](https://github.com/OwenLaban/python-dasar/tree/main/latihan_model): explorer katalog OpenRouter tanpa API key, 5 fungsi + 7 test (total 19/19), dan laporan pemilihan model untuk 3 skenario. Pelajaran: **context window = batas token per satu request**, bukan kapasitas request harian; **open-weight ≠ otomatis privat** jika tetap dipanggil lewat API publik; model gratis punya risiko rate limit/SLA dan kebijakan data; untuk data sensitif, privasi mengalahkan harga. Pilihan: flint (prototipe A), GLM-5.2 via private/zero-retention (B), Llama 3.2 3B Q4_K_M (C). PR #10 merged.
