@@ -1,0 +1,23 @@
+# Virtual environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Rahasia — jangan pernah di-commit
+.env
+.env.*
+!.env.example
+
+# Hasil latihan di root (dibuat saat program dijalankan)
+catatan.txt
+latihan.txt
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
