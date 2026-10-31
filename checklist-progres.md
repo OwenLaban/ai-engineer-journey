@@ -84,11 +84,11 @@
 - [x] Commit minggu ini ✅ *(PR #10 merged: `latihan_model` + laporan 3 skenario, 19/19 test)*
 
 ### Minggu 11 — Hugging Face + Model Lokal
-- [ ] Hugging Face: Hub, tasks, model card
-- [ ] Install Ollama → jalankan model lokal
-- [ ] Coba OpenRouter
-- [ ] Latihan: 1 tugas di 3 model
-- [ ] Commit minggu ini ✅
+- [x] Hugging Face: Hub, tasks, model card *(hf_explorer.py: search, detail, license, gated, estimasi Q4; 9 test)*
+- [x] Install Ollama → jalankan model lokal *(Ollama 0.40.13; llama3.2:1b, qwen2.5:1.5b, gemma2:2b)*
+- [x] Coba OpenRouter *(sudah dipakai Minggu 9–10: chatbot-api + laporan model)*
+- [x] Latihan: 1 tugas di 3 model *(benchmark 2 run; qwen2.5:1.5b terbaik; 31/31 test)*
+- [x] Commit minggu ini ✅ *(PR #11 merged; `b548da7`)*
 
 ### Minggu 12 — Context Engineering + Proyek #4
 - [ ] Sumber konteks, memory, compaction
@@ -204,3 +204,4 @@
 - **Minggu 8:** ✅ Selesai. Latihan 15: 5 variasi prompt untuk ekstraksi email → JSON tiket (zero-shot, role+schema, few-shot, CoT, robust/edge case), diuji dengan Email 1 + edge case Email 2. Semua output utama JSON valid; **few-shot** paling konsisten, sedangkan prompt 5 mengalami under-extraction (`produk: null`). Pelajaran: schema eksplisit mengunci format; contoh mengunci gaya dan level detail; constraint berlebihan bisa menurunkan recall; email harus diperlakukan sebagai data, bukan instruksi. PR #8 merged.
 - **Minggu 9:** ✅ Selesai. Proyek #3 [chatbot-api](https://github.com/OwenLaban/chatbot-api): FastAPI + memory JSON per sesi + output Pydantic + klien OpenRouter. 16/16 test; live test ingat nama, isolasi sesi, dan delete → 404. Pelajaran: test dengan mock bisa hijau meski `_client()` lupa `return` — tambahkan test konfigurasi client; `openrouter/free` adalah auto-router yang bisa memilih model safety, jadi pakai model chat spesifik; API key hanya di `.env`. PR #1 merged. **Fase 1 selesai.**
 - **Minggu 10:** ✅ Selesai. Lab [`latihan_model`](https://github.com/OwenLaban/python-dasar/tree/main/latihan_model): explorer katalog OpenRouter tanpa API key, 5 fungsi + 7 test (total 19/19), dan laporan pemilihan model untuk 3 skenario. Pelajaran: **context window = batas token per satu request**, bukan kapasitas request harian; **open-weight ≠ otomatis privat** jika tetap dipanggil lewat API publik; model gratis punya risiko rate limit/SLA dan kebijakan data; untuk data sensitif, privasi mengalahkan harga. Pilihan: flint (prototipe A), GLM-5.2 via private/zero-retention (B), Llama 3.2 3B Q4_K_M (C). PR #10 merged.
+- **Minggu 11:** ✅ Selesai. Lab [`latihan_lokal`](https://github.com/OwenLaban/python-dasar/tree/main/latihan_lokal): 5 fungsi Hugging Face + benchmark 3 model lokal lewat Ollama, 2 run (warm-up + data laporan), total 31/31 test. Pelajaran: jumlah parameter bukan satu-satunya penentu kecepatan — quantization default berbeda (`llama3.2:1b` Q8_0, `qwen2.5:1.5b` Q4_K_M, `gemma2:2b` Q4_0); **JSON valid ≠ isi benar** (llama salah `butuh_eskalasi`); `gemma2:2b` terukur **94% CPU / 6% GPU** karena VRAM hanya 2 GB. Pilihan: `qwen2.5:1.5b` (10,79 s; 25,68 token/detik; 5/5 field). PR #11 merged.

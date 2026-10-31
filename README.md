@@ -5,7 +5,7 @@ RAG, agent, MCP, evaluasi, dan deploy. Setiap proyek punya repo sendiri agar his
 dan README-nya fokus; repo ini menjadi **pintu masuk dan papan progres**-nya.
 
 > Roadmap acuan: [roadmap.sh/ai-engineer](https://roadmap.sh/ai-engineer) (2026)
-> Status saat ini: **Minggu 9 — Fase 1 (Inti LLM) selesai** ✅
+> Status saat ini: **Minggu 11 selesai** ✅ — berikutnya Minggu 12 (Context Engineering + Proyek #4)
 
 ---
 
@@ -18,7 +18,7 @@ Repo ini memakai **git submodule**. Klik nama proyek untuk membuka repo aslinya.
 | 1 | [todo-cli](https://github.com/OwenLaban/todo-cli) | Manajemen tugas di terminal dengan CRUD, filter, pencarian, dan JSON persistence | Python | ✅ |
 | 2 | [notes-api](https://github.com/OwenLaban/notes-api) | REST API catatan + Docker Compose dan volume persistence | FastAPI, Pytest, Docker | ✅ |
 | 3 | [chatbot-api](https://github.com/OwenLaban/chatbot-api) | Chatbot dengan memory per sesi dan structured output JSON | FastAPI, Pydantic, OpenRouter | ✅ |
-| 4 | [python-dasar](https://github.com/OwenLaban/python-dasar) | Latihan Python, HTTP/JSON, tokenizer, dan prompt engineering (Minggu 1–10) | Python, FastAPI, Pytest | 🚧 |
+| 4 | [python-dasar](https://github.com/OwenLaban/python-dasar) | Latihan Python, HTTP/JSON, tokenizer, prompt engineering, pemilihan model, dan model lokal (Minggu 1–11) | Python, FastAPI, Pytest, Ollama | 🚧 |
 
 ---
 
