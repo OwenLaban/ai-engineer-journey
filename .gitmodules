@@ -1,0 +1,12 @@
+[submodule "chatbot-api"]
+	path = chatbot-api
+	url = https://github.com/OwenLaban/chatbot-api.git
+[submodule "notes-api"]
+	path = notes-api
+	url = https://github.com/OwenLaban/notes-api.git
+[submodule "todo-cli"]
+	path = todo-cli
+	url = https://github.com/OwenLaban/todo-cli.git
+[submodule "python-dasar"]
+	path = python-dasar
+	url = https://github.com/OwenLaban/python-dasar.git
