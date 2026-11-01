@@ -96,7 +96,7 @@
 - [x] **Proyek #4: app model lokal (Ollama)** 🎯 *([ringkas-dokumen](https://github.com/OwenLaban/ringkas-dokumen), 24/24 test)*
 - [x] **🏁 LULUS FASE 2:** laporan tradeoff 2–3 model *(`docs/laporan-benchmark.md`: latency, throughput, kompresi, fakta)*
 - [x] Commit lab minggu ini ✅ *(PR #12 merged; `ff0f8c5`)*
-- [x] Commit proyek ✅ *(`ringkas-dokumen` commit `ed79117`)*
+- [x] Commit proyek ✅ *(`ringkas-dokumen` commit `08b371c`)*
 
 ---
 
