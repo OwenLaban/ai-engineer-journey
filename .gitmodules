@@ -10,3 +10,6 @@
 [submodule "python-dasar"]
 	path = python-dasar
 	url = https://github.com/OwenLaban/python-dasar.git
+[submodule "ringkas-dokumen"]
+	path = ringkas-dokumen
+	url = https://github.com/OwenLaban/ringkas-dokumen.git
