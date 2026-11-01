@@ -91,10 +91,11 @@
 - [x] Commit minggu ini ✅ *(PR #11 merged; `b548da7`)*
 
 ### Minggu 12 — Context Engineering + Proyek #4
-- [ ] Sumber konteks, memory, compaction
-- [ ] Context failure modes
+- [x] Sumber konteks, memory, compaction *(lab `latihan_context`: 6 fungsi + 20 test)*
+- [x] Context failure modes *(eksperimen awal/tengah/akhir + laporan analisis)*
 - [ ] **Proyek #4: app model lokal (Ollama)** 🎯
 - [ ] **🏁 LULUS FASE 2:** laporan tradeoff 2–3 model
+- [x] Commit lab minggu ini ✅ *(PR #12 merged; `ff0f8c5`)*
 
 ---
 
@@ -185,7 +186,7 @@
 | 1 | CLI To-do app | [todo-cli](https://github.com/OwenLaban/todo-cli) | ✅ |
 | 2 | REST API notes app + Docker | [notes-api](https://github.com/OwenLaban/notes-api) | ✅ |
 | 3 | Chatbot API + structured output | [chatbot-api](https://github.com/OwenLaban/chatbot-api) | ✅ |
-| 4 | App model lokal (Ollama) | — | ⬜ |
+| 4 | App model lokal (Ollama) | — | 🚧 |
 | 5 | RAG dokumen + sitasi | — | ⬜ |
 | 6 | MCP server | — | ⬜ |
 | 🏆 | Capstone | — | ⬜ |
@@ -205,3 +206,4 @@
 - **Minggu 9:** ✅ Selesai. Proyek #3 [chatbot-api](https://github.com/OwenLaban/chatbot-api): FastAPI + memory JSON per sesi + output Pydantic + klien OpenRouter. 16/16 test; live test ingat nama, isolasi sesi, dan delete → 404. Pelajaran: test dengan mock bisa hijau meski `_client()` lupa `return` — tambahkan test konfigurasi client; `openrouter/free` adalah auto-router yang bisa memilih model safety, jadi pakai model chat spesifik; API key hanya di `.env`. PR #1 merged. **Fase 1 selesai.**
 - **Minggu 10:** ✅ Selesai. Lab [`latihan_model`](https://github.com/OwenLaban/python-dasar/tree/main/latihan_model): explorer katalog OpenRouter tanpa API key, 5 fungsi + 7 test (total 19/19), dan laporan pemilihan model untuk 3 skenario. Pelajaran: **context window = batas token per satu request**, bukan kapasitas request harian; **open-weight ≠ otomatis privat** jika tetap dipanggil lewat API publik; model gratis punya risiko rate limit/SLA dan kebijakan data; untuk data sensitif, privasi mengalahkan harga. Pilihan: flint (prototipe A), GLM-5.2 via private/zero-retention (B), Llama 3.2 3B Q4_K_M (C). PR #10 merged.
 - **Minggu 11:** ✅ Selesai. Lab [`latihan_lokal`](https://github.com/OwenLaban/python-dasar/tree/main/latihan_lokal): 5 fungsi Hugging Face + benchmark 3 model lokal lewat Ollama, 2 run (warm-up + data laporan), total 31/31 test. Pelajaran: jumlah parameter bukan satu-satunya penentu kecepatan — quantization default berbeda (`llama3.2:1b` Q8_0, `qwen2.5:1.5b` Q4_K_M, `gemma2:2b` Q4_0); **JSON valid ≠ isi benar** (llama salah `butuh_eskalasi`); `gemma2:2b` terukur **94% CPU / 6% GPU** karena VRAM hanya 2 GB. Pilihan: `qwen2.5:1.5b` (10,79 s; 25,68 token/detik; 5/5 field). PR #11 merged.
+- **Minggu 12 (lab):** ✅ Selesai. Lab [`latihan_context`](https://github.com/OwenLaban/python-dasar/tree/main/latihan_context): 6 fungsi context engineering (token, chunking + overlap, anggaran input, pemilihan strategi, compaction riwayat, penggabungan ringkasan) + 20 test; total repo 51/51. Eksperimen `qwen2.5:1.5b` menaruh `BIRU-4721` di awal/tengah/akhir: hanya posisi akhir benar, awal dan tengah menjawab `32` dari filler “nomor 32”. Pelajaran: prompt 1.627 token masih di bawah `num_ctx` 2.048, jadi kegagalan **bukan overflow**; ini distraction + gagal format, dan belum cukup membuktikan *lost in the middle* karena posisi awal juga salah. PR #12 merged. Proyek #4 menyusul.
