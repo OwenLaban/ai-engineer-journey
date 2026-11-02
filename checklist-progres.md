@@ -103,10 +103,10 @@
 ## 🗄️ Fase 3 — RAG
 
 ### Minggu 13 — Embeddings
-- [ ] Konsep embedding + semantic similarity
-- [ ] Use case 4 jenis
-- [ ] Latihan: semantic search 20 kalimat
-- [ ] Commit minggu ini ✅
+- [x] Konsep embedding + semantic similarity *(dot product, norm, cosine, normalisasi)*
+- [x] Use case 4 jenis *(semantic search, klasifikasi, rekomendasi, deteksi anomali)*
+- [x] Latihan: semantic search 20 kalimat *(`latihan_embedding`, 20/20 test; total repo 71/71)*
+- [x] Commit minggu ini ✅ *(PR #13 merged; `a5cc704`)*
 
 ### Minggu 14 — Vector Database
 - [ ] Pilih 1 DB: Chroma atau Qdrant
@@ -209,3 +209,4 @@
 - **Minggu 11:** ✅ Selesai. Lab [`latihan_lokal`](https://github.com/OwenLaban/python-dasar/tree/main/latihan_lokal): 5 fungsi Hugging Face + benchmark 3 model lokal lewat Ollama, 2 run (warm-up + data laporan), total 31/31 test. Pelajaran: jumlah parameter bukan satu-satunya penentu kecepatan — quantization default berbeda (`llama3.2:1b` Q8_0, `qwen2.5:1.5b` Q4_K_M, `gemma2:2b` Q4_0); **JSON valid ≠ isi benar** (llama salah `butuh_eskalasi`); `gemma2:2b` terukur **94% CPU / 6% GPU** karena VRAM hanya 2 GB. Pilihan: `qwen2.5:1.5b` (10,79 s; 25,68 token/detik; 5/5 field). PR #11 merged.
 - **Minggu 12 (lab):** ✅ Selesai. Lab [`latihan_context`](https://github.com/OwenLaban/python-dasar/tree/main/latihan_context): 6 fungsi context engineering (token, chunking + overlap, anggaran input, pemilihan strategi, compaction riwayat, penggabungan ringkasan) + 20 test; total repo 51/51. Eksperimen `qwen2.5:1.5b` menaruh `BIRU-4721` di awal/tengah/akhir: hanya posisi akhir benar, awal dan tengah menjawab `32` dari filler “nomor 32”. Pelajaran: prompt 1.627 token masih di bawah `num_ctx` 2.048, jadi kegagalan **bukan overflow**; ini distraction + gagal format, dan belum cukup membuktikan *lost in the middle* karena posisi awal juga salah. PR #12 merged.
 - **Minggu 12 (Proyek #4):** ✅ Selesai. [`ringkas-dokumen`](https://github.com/OwenLaban/ringkas-dokumen): FastAPI + Ollama, chunking token + overlap, strategi `stuff`/`map_reduce`/`refine`, reduce hierarkis, validasi output, upload `.txt`/`.md`, 24/24 test dengan fake client, dan CI GitHub Actions. Benchmark 3 model pada notulen 927 token: `qwen2.5:1.5b` terbaik (69,83 s; 16,88 token/detik; 2,35× kompresi; 7/8 fakta), `gemma2:2b` (102,79 s; 8,81 token/detik; 6/8), `llama3.2:1b` paling cepat (61,50 s) tetapi hanya 5/8 fakta. Fakta yang paling sering hilang: baterai 10 MWh. Pelajaran: **validasi format ≠ validasi isi**; map-reduce bisa kehilangan fakta di tahap map, dan ringkasan terlalu padat (llama 6,22×) mengorbankan detail. **Fase 2 selesai.**
+- **Minggu 13:** ✅ Selesai. Lab [`latihan_embedding`](https://github.com/OwenLaban/python-dasar/tree/main/latihan_embedding): 6 fungsi vektor (dot product, norm, cosine, normalisasi, pencarian top-k, precision@k) + 20 test; total repo 71/71. Semantic search 20 kalimat/4 topik dengan `nomic-embed-text` (768 dimensi, 9,12 s untuk 24 teks). precision@3: teknologi 1,00; kuliner 0,33; olahraga 0,67; keuangan 0,00. Pelajaran: **kecocokan bahasa model menentukan kualitas retrieval** — query keuangan berbahasa Indonesia gagal total, versi Inggrisnya naik ke 0,67; skor cosine tidak terkalibrasi (hasil salah 0,7363 > hasil benar 0,7129), jadi cosine hanya alat ranking, bukan ambang kebenaran. `nomic-embed-text` hanya 274 MB dan tanpa PyTorch, cocok untuk RAM 7,7 GB. PR #13 merged.
